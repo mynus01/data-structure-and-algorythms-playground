@@ -2,21 +2,20 @@ package array
 
 class MyCustomArray(initialCapacity: Int) {
     private var array: IntArray = IntArray(initialCapacity)
-    private var currentPosition = 0
+    private var count = 0
 
     fun size() = array.size
 
     fun add(number: Int) {
-        if (currentPosition == array.size) {
-            val newArray = IntArray(currentPosition + 1)
+        if (count == array.size) {
+            val newArray = IntArray(count + 1)
 
-            for ((position, item) in array.withIndex()) {
-                newArray[position] = item
+            for ((index, item) in array.withIndex()) {
+                newArray[index] = item
             }
             array = newArray
         }
-        array[currentPosition] = number
-        currentPosition++
+        array[count++] = number
     }
 
     fun get(position: Int): Int {
@@ -30,13 +29,22 @@ class MyCustomArray(initialCapacity: Int) {
         if (position >= array.size || position < 0) {
             throw IllegalArgumentException("Index doesn't exist within array!")
         }
-        array[position] = 0
+
+        val newArray = IntArray(--count)
+        var counter = 0
+
+        for ((index, item) in array.withIndex()) {
+            if (index != position) {
+                newArray[counter++] = item
+            }
+        }
+        array = newArray
     }
 
     fun indexOf(number: Int): Int {
-        for ((position, item) in array.withIndex()) {
+        for ((index, item) in array.withIndex()) {
             if (item == number) {
-                return position
+                return index
             }
         }
         return -1

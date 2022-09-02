@@ -45,14 +45,14 @@ class CustomArrayTest {
     }
 
     @Test
-    fun `removing a valid position should zero it`() {
+    fun `removing a valid position should decrease array size by one`() {
         val array = MyCustomArray(3)
         array.add(0)
         array.add(100)
         array.add(200)
         array.removeAt(2)
 
-        assertEquals(0, array.get(2))
+        assertEquals(2, array.size())
     }
 
     @Test(expected = IllegalArgumentException::class)
