@@ -38,16 +38,38 @@ class MyCustomLinkedList {
     fun deleteFirst() {
         val newFirst = first?.next
         if (!isEmpty()) {
-            first?.next = null
-            first = newFirst
+            if (size() == 1) {
+                first = null
+                last = null
+            } else {
+                first?.next = null
+                first = newFirst
+            }
             nodeNumber--
         } else {
-            throw NoSuchElementException("First cannot be removed if it is the only node!")
+            throw NoSuchElementException("First cannot be removed if the list is empty!")
         }
     }
 
     fun deleteLast() {
-        // TODO
+        if (!isEmpty()) {
+            if (size() == 1) {
+                first = null
+                last = null
+            } else {
+                var newLast = first
+                while (newLast != null) {
+                    if (newLast.next == last) {
+                        break
+                    }
+                    newLast = newLast.next
+                }
+                last = newLast
+                last?.next = null
+            }
+        } else {
+            throw NoSuchElementException("Last cannot be removed if the list is empty!")
+        }
     }
 
     fun indexOf(num: Int): Int {

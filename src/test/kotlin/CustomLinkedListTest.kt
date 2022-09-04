@@ -36,14 +36,17 @@ class CustomLinkedListTest {
 
     @Test
     fun `deleteLast should remove the last node`() {
-        // TODO
+        list.addLast(0)
+        list.addLast(100)
+        list.addLast(200)
+
+        list.deleteLast()
+        assertEquals(100, list.last?.value)
     }
 
     @Test(expected = NoSuchElementException::class)
     fun `trying to deleteLast without elements should throw NoSuchElementException`() {
-        // TODO
-//        list.deleteLast()
-        throw NoSuchElementException()
+        list.deleteLast()
     }
 
     @Test
