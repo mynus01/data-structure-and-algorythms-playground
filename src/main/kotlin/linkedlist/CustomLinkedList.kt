@@ -1,28 +1,23 @@
 package linkedlist
 
-class MyCustomLinkedList {
-    data class MyNode(
-        var value: Int,
-        var next: MyNode? = null
-    )
-
-    var first: MyNode? = null
-    var last: MyNode? = null
+class CustomLinkedList {
+    var first: CustomNode? = null
+    var last: CustomNode? = null
     private var nodeNumber = 0
 
     fun addFirst(num: Int) {
         if (!isEmpty()) {
             last = first
-            first = MyNode(num, first)
+            first = CustomNode(num, first)
         } else {
-            first = MyNode(num)
+            first = CustomNode(num)
             last = first
         }
         nodeNumber++
     }
 
     fun addLast(num: Int) {
-        val newLast = MyNode(num)
+        val newLast = CustomNode(num)
 
         if (!isEmpty()) {
             last?.next = newLast
@@ -73,7 +68,7 @@ class MyCustomLinkedList {
     }
 
     fun indexOf(num: Int): Int {
-        var currentNode: MyNode? = first
+        var currentNode: CustomNode? = first
         var counter = 0
 
         while (true) {

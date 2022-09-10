@@ -1,6 +1,6 @@
 package array
 
-class MyCustomArray(initialCapacity: Int) {
+class CustomArrayList(initialCapacity: Int) {
     private var array: IntArray = IntArray(initialCapacity)
     private var count = 0
 

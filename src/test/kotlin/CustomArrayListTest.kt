@@ -1,10 +1,10 @@
-import array.MyCustomArray
+import array.CustomArrayList
 import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class CustomArrayTest {
-    private val array = MyCustomArray(3)
+class CustomArrayListTest {
+    private val array = CustomArrayList(3)
 
     @Before
     fun setup() {
