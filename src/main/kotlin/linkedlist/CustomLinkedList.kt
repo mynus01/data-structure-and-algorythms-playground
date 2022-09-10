@@ -59,8 +59,8 @@ class CustomLinkedList {
                     }
                     newLast = newLast.next
                 }
-                last = newLast
                 last?.next = null
+                last = newLast
             }
         } else {
             throw NoSuchElementException("Last cannot be removed if the list is empty!")
