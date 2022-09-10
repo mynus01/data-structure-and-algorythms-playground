@@ -21,6 +21,17 @@ class NewCustomLinkedListTest {
     }
 
     @Test
+    fun `insert should add the value at the given position`() {
+        list.append(0)
+        list.append(100)
+        list.append(200)
+        list.append(400)
+        list.insert(3, 300)
+
+        assertEquals(3, list.indexOf(300))
+    }
+
+    @Test
     fun `deleteHead should remove the first node`() {
         list.prepend(0)
         list.prepend(100)
