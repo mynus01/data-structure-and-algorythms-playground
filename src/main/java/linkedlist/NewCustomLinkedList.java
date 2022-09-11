@@ -149,6 +149,7 @@ public class NewCustomLinkedList {
             NewCustomNode previousNode = get(index - 1);
             NewCustomNode nodeToBeRemoved = previousNode.getNext();
             previousNode.setNext(nodeToBeRemoved.getNext());
+            nodeToBeRemoved.setNext(null);
         }
         length--;
     }
