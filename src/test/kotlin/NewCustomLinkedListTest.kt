@@ -96,6 +96,83 @@ class NewCustomLinkedListTest {
         assertEquals(-1, result)
     }
 
+
+    @Test
+    fun `get should return the item at the given position`() {
+        list.append(0)
+        list.append(100)
+        list.append(200)
+        list.append(300)
+
+        val result = list.get(2).value
+        assertEquals(200, result)
+    }
+
+    @Test(expected = NoSuchElementException::class)
+    fun `trying to get with a position greater than the size of the list minus one should throw NoSuchElementException`() {
+        list.append(0)
+        list.append(100)
+
+        list.get(4)
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `trying to get with a negative position should throw NoSuchElementException`() {
+        list.get(-1)
+    }
+
+    @Test
+    fun `set should set the value to the given position`() {
+        list.append(0)
+        list.append(100)
+        list.append(300)
+        list.append(300)
+
+        list.set(2, 200)
+        assertEquals(200, list.get(2).value)
+    }
+
+    @Test(expected = NoSuchElementException::class)
+    fun `trying to set with a position greater than the size of the list minus one should throw NoSuchElementException`() {
+        list.append(0)
+        list.append(100)
+
+        list.set(2, 200)
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `trying to set with a negative position should throw NoSuchElementException`() {
+        list.append(0)
+
+        list.set(-1, 100)
+    }
+
+    @Test
+    fun `remove should delete the item at the given position`() {
+        list.append(0)
+        list.append(100)
+        list.append(200)
+        list.append(300)
+
+        list.remove(1)
+        assertEquals(200, list.get(1).value)
+    }
+
+    @Test(expected = NoSuchElementException::class)
+    fun `trying to remove with a position greater than the size of the list minus one should throw NoSuchElementException`() {
+        list.append(0)
+        list.append(100)
+
+        list.remove(2)
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun `trying to remove with a negative position should throw NoSuchElementException`() {
+        list.append(0)
+
+        list.remove(-1)
+    }
+
     @Test
     fun `length should return the number of inserted items`() {
         list.prepend(0)

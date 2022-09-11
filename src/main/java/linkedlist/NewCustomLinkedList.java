@@ -69,6 +69,7 @@ public class NewCustomLinkedList {
             } else {
                 head = head.getNext();
             }
+            length--;
         } else {
             throw new NoSuchElementException("Head cannot be removed if the list is empty!");
         }
@@ -91,6 +92,7 @@ public class NewCustomLinkedList {
                 tail.setNext(null);
                 tail = newLast;
             }
+            length--;
         } else {
             throw new NoSuchElementException("Tail cannot be removed if the list is empty!");
         }
@@ -112,8 +114,51 @@ public class NewCustomLinkedList {
         return -1;
     }
 
+    public NewCustomNode get(int index) {
+        if (index < 0) {
+            throw new IllegalArgumentException("Index cannot be less than zero!");
+        }
+        NewCustomNode current = head;
+        for (int i = 0; i < length; i++) {
+            if (i == index) {
+                return current;
+            } else {
+                current = current.getNext();
+            }
+        }
+        throw new NoSuchElementException("Index doesn't exist within list!");
+    }
+
+    public void set(int index, int value) {
+        NewCustomNode node = get(index);
+        node.setValue(value);
+    }
+
+    public void remove(int index) {
+        if (index < 0) {
+            throw new IllegalArgumentException("Index cannot be less than zero!");
+        } else if (index >= length) {
+            throw new NoSuchElementException("Index doesn't exist within list!");
+        }
+
+        if (index == 0) {
+            deleteHead();
+        } else if (index == length - 1) {
+            deleteTail();
+        } else {
+            NewCustomNode previousNode = get(index - 1);
+            NewCustomNode nodeToBeRemoved = previousNode.getNext();
+            previousNode.setNext(nodeToBeRemoved.getNext());
+        }
+        length--;
+    }
+
     public boolean isEmpty() {
         return length == 0;
+    }
+
+    public int getLength() {
+        return length;
     }
 
     public NewCustomNode getHead() {
@@ -122,9 +167,5 @@ public class NewCustomLinkedList {
 
     public NewCustomNode getTail() {
         return tail;
-    }
-
-    public int getLength() {
-        return length;
     }
 }
