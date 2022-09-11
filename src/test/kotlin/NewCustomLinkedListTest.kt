@@ -174,6 +174,17 @@ class NewCustomLinkedListTest {
     }
 
     @Test
+    fun `reverse should reverse all the items`() {
+        list.append(0)
+        list.append(100)
+        list.append(200)
+        list.append(300)
+
+        list.reverse()
+        assertEquals(0, list.get(3).value)
+    }
+
+    @Test
     fun `length should return the number of inserted items`() {
         list.prepend(0)
         list.prepend(100)

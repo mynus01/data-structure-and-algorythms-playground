@@ -154,6 +154,22 @@ public class NewCustomLinkedList {
         length--;
     }
 
+
+    public void reverse() {
+        NewCustomNode node = head;
+        head = tail;
+        tail = node;
+
+        NewCustomNode nextNode;
+        NewCustomNode previousNode = null;
+        for (int i = 0; i < length; i++) {
+            nextNode = node.getNext();
+            node.setNext(previousNode);
+            previousNode = node;
+            node = nextNode;
+        }
+    }
+
     public boolean isEmpty() {
         return length == 0;
     }
