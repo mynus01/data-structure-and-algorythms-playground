@@ -1,4 +1,4 @@
-package linkedlist;
+package linkedlist.java;
 
 public class NewCustomNode {
     private int value;

@@ -1,4 +1,4 @@
-import linkedlist.CustomLinkedList
+import linkedlist.kotlin.CustomLinkedList
 import org.junit.Test
 import kotlin.test.assertEquals
 

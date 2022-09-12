@@ -1,4 +1,4 @@
-package linkedlist
+package linkedlist.kotlin
 
 class CustomLinkedList {
     var first: CustomNode? = null

@@ -1,4 +1,4 @@
-package linkedlist
+package linkedlist.kotlin
 
 data class CustomNode(
     var value: Int,
