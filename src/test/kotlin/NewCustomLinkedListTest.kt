@@ -1,9 +1,9 @@
-import linkedlist.java.NewCustomLinkedList
+import linkedlist.java.CustomLinkedList
 import org.junit.Test
 import kotlin.test.assertEquals
 
 class NewCustomLinkedListTest {
-    private val list = NewCustomLinkedList()
+    private val list = CustomLinkedList()
     @Test
     fun `prepend should add the item to the first position`() {
         list.prepend(0)

@@ -2,26 +2,26 @@ package linkedlist.java;
 
 import java.util.NoSuchElementException;
 
-public class NewCustomLinkedList {
-    private NewCustomNode head;
-    private NewCustomNode tail;
+public class CustomLinkedList {
+    private CustomNode head;
+    private CustomNode tail;
     private int length;
 
-    public NewCustomLinkedList() {
+    public CustomLinkedList() {
         this.head = null;
         this.tail = null;
         this.length = 0;
     }
 
-    public NewCustomLinkedList(int value) {
-        NewCustomNode newNode = new NewCustomNode(value, null);
+    public CustomLinkedList(int value) {
+        CustomNode newNode = new CustomNode(value, null);
         this.head = newNode;
         this.tail = newNode;
         this.length = 1;
     }
 
     public void append(int value) {
-        NewCustomNode newNode = new NewCustomNode(value, null);
+        CustomNode newNode = new CustomNode(value, null);
         if (isEmpty()) {
             head = newNode;
         } else {
@@ -33,11 +33,11 @@ public class NewCustomLinkedList {
 
     public void prepend(int value) {
         if (isEmpty()) {
-            NewCustomNode newNode = new NewCustomNode(value, null);
+            CustomNode newNode = new CustomNode(value, null);
             head = newNode;
             tail = newNode;
         } else {
-            head = new NewCustomNode(value, head);
+            head = new CustomNode(value, head);
         }
         length++;
     }
@@ -46,12 +46,12 @@ public class NewCustomLinkedList {
         if (index < 0) {
             throw new IllegalArgumentException("Index cannot be less than zero!");
         }
-        NewCustomNode node = head;
+        CustomNode node = head;
         for (int i = 0; i < length; i++) {
             if (index == 0) {
-                head = new NewCustomNode(value, head.getNext());
+                head = new CustomNode(value, head.getNext());
             } else if (i == index - 1) {
-                node.setNext(new NewCustomNode(value, node.getNext()));
+                node.setNext(new CustomNode(value, node.getNext()));
                 length++;
                 return;
             } else {
@@ -81,7 +81,7 @@ public class NewCustomLinkedList {
                 tail = null;
                 head = null;
             } else {
-                NewCustomNode newLast = head;
+                CustomNode newLast = head;
 
                 while (newLast != null) {
                     if (newLast.getNext() == tail) {
@@ -103,7 +103,7 @@ public class NewCustomLinkedList {
     }
 
     public int indexOf(int value) {
-        NewCustomNode node = head;
+        CustomNode node = head;
         for (int i = 0; i < length; i++) {
             if (node.getValue() == value) {
                 return i;
@@ -114,11 +114,11 @@ public class NewCustomLinkedList {
         return -1;
     }
 
-    public NewCustomNode get(int index) {
+    public CustomNode get(int index) {
         if (index < 0) {
             throw new IllegalArgumentException("Index cannot be less than zero!");
         }
-        NewCustomNode current = head;
+        CustomNode current = head;
         for (int i = 0; i < length; i++) {
             if (i == index) {
                 return current;
@@ -130,7 +130,7 @@ public class NewCustomLinkedList {
     }
 
     public void set(int index, int value) {
-        NewCustomNode node = get(index);
+        CustomNode node = get(index);
         node.setValue(value);
     }
 
@@ -146,8 +146,8 @@ public class NewCustomLinkedList {
         } else if (index == length - 1) {
             deleteTail();
         } else {
-            NewCustomNode previousNode = get(index - 1);
-            NewCustomNode nodeToBeRemoved = previousNode.getNext();
+            CustomNode previousNode = get(index - 1);
+            CustomNode nodeToBeRemoved = previousNode.getNext();
             previousNode.setNext(nodeToBeRemoved.getNext());
             nodeToBeRemoved.setNext(null);
         }
@@ -156,12 +156,12 @@ public class NewCustomLinkedList {
 
 
     public void reverse() {
-        NewCustomNode node = head;
+        CustomNode node = head;
         head = tail;
         tail = node;
 
-        NewCustomNode nextNode;
-        NewCustomNode previousNode = null;
+        CustomNode nextNode;
+        CustomNode previousNode = null;
         for (int i = 0; i < length; i++) {
             nextNode = node.getNext();
             node.setNext(previousNode);
@@ -178,11 +178,11 @@ public class NewCustomLinkedList {
         return length;
     }
 
-    public NewCustomNode getHead() {
+    public CustomNode getHead() {
         return head;
     }
 
-    public NewCustomNode getTail() {
+    public CustomNode getTail() {
         return tail;
     }
 }

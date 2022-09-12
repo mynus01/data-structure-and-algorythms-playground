@@ -1,10 +1,10 @@
 package linkedlist.java;
 
-public class NewCustomNode {
+public class CustomNode {
     private int value;
-    private NewCustomNode next;
+    private CustomNode next;
 
-    public NewCustomNode(int value, NewCustomNode next) {
+    public CustomNode(int value, CustomNode next) {
         this.value = value;
         this.next = next;
     }
@@ -17,11 +17,11 @@ public class NewCustomNode {
         this.value = value;
     }
 
-    public NewCustomNode getNext() {
+    public CustomNode getNext() {
         return next;
     }
 
-    public void setNext(NewCustomNode next) {
+    public void setNext(CustomNode next) {
         this.next = next;
     }
 }
